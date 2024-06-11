@@ -34,8 +34,9 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization', 'My-Custom-Header'], // Permitir encabezados específicos
 }));
 //routes
-app.use('/games',gamesRoutes)
 app.use('/users',userRouter)
+app.use('/games',gamesRoutes)
+
 //starting the server
 app.listen(app.get('port'), () => {
     console.log(`server on port ${app.get('port')}`)
