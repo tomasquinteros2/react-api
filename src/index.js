@@ -29,11 +29,10 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173'/*, // Reemplazar con el origen de tu aplicación React
-    credentials: true,  // Permitir cookies para solicitudes autenticadas (si corresponde)
-    methods: 'GET POST',  // Especificar métodos HTTP permitidos
-    allowedHeaders: ['Content-Type', 'Authorization', 'My-Custom-Header'],  // Permitir encabezados específicos
-*/}));
+    origin: 'https://proyect-game-react.vercel.app', // Especificar el origen de tu aplicación React en Vercel
+    methods: 'GET,POST', // Especificar los métodos HTTP permitidos
+    allowedHeaders: ['Content-Type', 'Authorization', 'My-Custom-Header'], // Permitir encabezados específicos
+}));
 //routes
 app.use('/games',gamesRoutes)
 app.use('/users',userRouter)
