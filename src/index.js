@@ -29,7 +29,7 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(cors({
     credentials: true,
-    origin: 'https://proyect-game-react-git-main-tomasquinteros2s-projects.vercel.app', // Especificar el origen de tu aplicación React en Vercel
+    origin: '*', // Permitir el acceso desde cualquier origen
     methods: 'GET,POST', // Especificar los métodos HTTP permitidos
     allowedHeaders: ['Content-Type', 'Authorization', 'My-Custom-Header'], // Permitir encabezados específicos
 }));
