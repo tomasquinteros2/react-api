@@ -28,11 +28,11 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(cors({
-    credentials: true,
-    origin: '*', // Permitir el acceso desde cualquier origen
-    methods: 'GET,POST', // Especificar los métodos HTTP permitidos
-    allowedHeaders: ['Content-Type', 'Authorization', 'My-Custom-Header'], // Permitir encabezados específicos
-}));
+    origin: 'https://proyect-game-react-git-main-tomasquinteros2s-projects.vercel.app',
+    methods: 'GET,POST',
+    allowedHeaders: ['Content-Type', 'Authorization', 'My-Custom-Header'],
+    credentials: true // Permitir credenciales
+};
 //routes
 app.use('/users',userRouter)
 app.use('/games',gamesRoutes)
