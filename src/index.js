@@ -20,20 +20,20 @@ mongoose.connect(uri, {
 //settings
 app.set('port', process.env.PORT || 3000)
 app.set('json spaces',2)
-
+// CORS Config
+const corsOptions = {
+    origin: ['http://localhost:5173', 'https://proyect-game-react.vercel.app'], // Reemplaza con el origen correcto de tu frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // Habilita el intercambio de credenciales
+  };
+app.use(cors(corsOptions));
 //middlewares
 app.use(cookieParser())
 app.use(morgan('combined'))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(bodyParser.json())
-app.use(cors({
-    credentials: true,
-    origin: 'http://localhost:5173'/*, // Reemplazar con el origen de tu aplicación React
-    credentials: true,  // Permitir cookies para solicitudes autenticadas (si corresponde)
-    methods: 'GET POST',  // Especificar métodos HTTP permitidos
-    allowedHeaders: ['Content-Type', 'Authorization', 'My-Custom-Header'],  // Permitir encabezados específicos
-*/}));
 //routes
 app.use('/games',gamesRoutes)
 app.use('/users',userRouter)
