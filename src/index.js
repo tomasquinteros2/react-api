@@ -35,8 +35,9 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(bodyParser.json())
 //routes
-app.use('/games',gamesRoutes)
 app.use('/users',userRouter)
+app.use('/games',gamesRoutes)
+
 //starting the server
 app.listen(app.get('port'), () => {
     console.log(`server on port ${app.get('port')}`)
