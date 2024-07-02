@@ -12,7 +12,6 @@ function createAccessToken(payload) {
                 reject(err);
             } else {
                 // Establecer la cookie con el token
-                document.cookie = `token=${token}; expires=${new Date(Date.now() + 86400000).toUTCString()}; path=/`; // expire in 1 day
                 resolve(token);
             }
         });
