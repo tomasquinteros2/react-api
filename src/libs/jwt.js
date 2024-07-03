@@ -7,6 +7,7 @@ function createAccessToken(payload) {
                 console.error("Error creating token:", err);
                 reject(err);
             } else {
+                console.log(token.expiresIn)
                 resolve(token);
             }
         });

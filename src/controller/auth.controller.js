@@ -40,6 +40,7 @@ module.exports = {
             
             const token = await createAccessToken({id: userFound._id})
             res.cookie("token", token);
+            console.log(token.expires)
             res.status(200).json({
                 id:userFound._id,
                 name:userFound.name,
