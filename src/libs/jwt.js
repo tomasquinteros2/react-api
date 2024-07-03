@@ -11,12 +11,10 @@ function createAccessToken(payload) {
                 console.error("Error creating token:", err);
                 reject(err);
             } else {
-                // Establecer la cookie con el token
                 resolve(token);
             }
         });
     });
 }
-
 
 module.exports = createAccessToken;
