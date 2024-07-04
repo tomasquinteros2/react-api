@@ -40,7 +40,7 @@ module.exports = {
             
             const token = await createAccessToken({id: userFound._id})
             res.cookie("token", token);
-            console.log(token.expires)
+            console.log(token.expires+"token expires")
             res.status(200).json({
                 id:userFound._id,
                 name:userFound.name,
@@ -54,7 +54,6 @@ module.exports = {
         
     },
     logout: (req,res,next)=>{
-        console.log("hola")
         res.cookie("token","",{
             expires: new Date(0)
         })
@@ -71,16 +70,22 @@ module.exports = {
         })
     },
     verifyToken: async(req,res)=>{
-        console.log(req.cookies)
+        
         const { token } = req.cookies;
         if (!token) return res.send(false);
 
         jwt.verify(token, "secret123", async (error, user) => {
-            if (error) return res.sendStatus(401);
+            if (error) {
+                console.error("Error verifying JWT token:", error);
+                return res.sendStatus(401);
+            }
 
-            const userFound = await User.findById(user.payload.id);
-            console.log(user)
-            if (!userFound) return res.sendStatus(401);
+            const userFound = await User.findById(user.id);
+
+            if (!userFound){ 
+                console.error("Usuario no encontrado en la base de datos");
+                return res.sendStatus(401);
+            }
 
             return res.json({
             id: userFound._id,
