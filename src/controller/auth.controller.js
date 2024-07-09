@@ -39,7 +39,10 @@ module.exports = {
             if(!isMatch) return res.status(400).json({message:"Incorret password"})
             
             const token = await createAccessToken({id: userFound._id})
-            res.cookie("token", token);
+            res.cookie('token', token, {
+                httpOnly: true,
+                expires: new Date(Date.now() + 24 * 60 * 60 * 1000)
+            });
             console.log(token.expires+"token expires")
             res.status(200).json({
                 id:userFound._id,
