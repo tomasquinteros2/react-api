@@ -41,6 +41,7 @@ module.exports = {
             const token = await createAccessToken({id: userFound._id})
             res.cookie('token', token, {
                 httpOnly: true,
+                secure: true, 
                 expires: new Date(Date.now() + 24 * 60 * 60 * 1000)
             });
             console.log(token.expires+"token expires")
