@@ -74,7 +74,6 @@ module.exports = {
         })
     },
     verifyToken: async(req,res)=>{
-        console.log("VERIFY TOKEN")
         const { token } = req.cookies;
         if (!token) return res.send(false,"No hay TOKEN");
 
@@ -87,11 +86,9 @@ module.exports = {
             const userFound = await User.findById(user.id);
 
             if (!userFound){ 
-                console.log("Usuario no encontrado en la base de datos")
                 console.error("Usuario no encontrado en la base de datos");
                 return res.sendStatus(401);
             }
-            console.log(userFound)
             return res.json({
             id: userFound._id,
             username: userFound.username,
