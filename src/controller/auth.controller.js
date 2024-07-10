@@ -74,7 +74,9 @@ module.exports = {
         })
     },
     verifyToken: async(req,res)=>{
-        const { token } = req.cookies;
+        
+        const token  = req.headers.authorization;
+        console.log(token)
         if (!token) return res.status(400).send({ message: 'Error' });
 
         jwt.verify(token, "secret123", async (error, user) => {
