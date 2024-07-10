@@ -35,19 +35,6 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(bodyParser.json())
 //routes
-app.get("/", (req, res) => {
-    const htmlResponse = `
-      <html>
-        <head>
-          <title>API rattata</title>
-        </head>
-        <body>
-          <h1>Utiliza /games para obtener los juegos </h1>
-        </body>
-      </html>
-    `;
-    res.send(htmlResponse);
-  });
 app.use('/users',userRouter)
 app.use('/games',gamesRoutes)
 
