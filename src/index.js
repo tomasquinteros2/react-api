@@ -22,10 +22,10 @@ app.set('port', process.env.PORT || 3000)
 app.set('json spaces',2)
 // CORS Config
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://proyect-game-react.vercel.app','https://proyect-react-games.vercel.app'], // Reemplaza con el origen correcto de tu frontend
+    origin: ['http://localhost:5173', 'https://proyect-game-react.vercel.app','https://proyect-react-games.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Habilita el intercambio de credenciales
+    credentials: true,
   };
 app.use(cors(corsOptions));
 //middlewares
