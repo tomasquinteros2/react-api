@@ -6,7 +6,7 @@ const {login,register,logout,profile,verifyToken} = require('../controller/auth.
 const {validateSchema} = require('../middlewares/validatos.middleware')
 
 router.post('/register',validateSchema(registerSchema),register)
-router.post('/login', validateSchema(loginSchema),login)
+router.post('/login',validateSchema(loginSchema),login)
 router.post('/logout',logout)
 
 router.get("/profile",authRequired,profile)
