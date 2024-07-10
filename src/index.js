@@ -39,10 +39,10 @@ app.get("/", (req, res) => {
     const htmlResponse = `
       <html>
         <head>
-          <title>NodeJs y Express en Vercel</title>
+          <title>API rattata</title>
         </head>
         <body>
-          <h1>Soy un proyecto Back end en vercel</h1>
+          <h1>Utiliza /games para obtener los juegos </h1>
         </body>
       </html>
     `;
